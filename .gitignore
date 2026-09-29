@@ -1,4 +1,15 @@
-.moonraker.conf.bkp
+# Private - never publish (repo is public)
 moonraker-obico.cfg
-printer-*
+*.db
+*.mdb
+*.sqlite
+*.sqlite3
+# Klipper / Moonraker autosaves and leftovers
+printer-[0-9]*_[0-9]*.cfg
+.moonraker.conf.bkp
+moonraker.conf.backup
+crowsnest.conf.20*
+*.bak
+*.bkp
+*.swp
 .git-old
