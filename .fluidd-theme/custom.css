@@ -2,7 +2,10 @@
    TRIDENT // Fluidd theme  (トライデント)
    80s electro-steampunk: Neo-Tokyo night, CRT amber, Akira red, brass.
    Matches https://iggythewolf.github.io/trident_klipper_config/
-   Set Settings > Theme > primary colour to #E5322B, dark mode on.
+   HOW TO SWITCH IT ON: Settings > Theme > preset "Fluidd", then set the
+   primary color to #E5322B (dark mode on). Any other preset or colour
+   leaves Fluidd completely stock. (CSS style queries: Chrome/Edge 111+,
+   Safari 18+; older browsers simply show stock Fluidd.)
    =================================================================== */
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=JetBrains+Mono:wght@400;500;700&display=swap");
 
@@ -20,97 +23,101 @@
   --tr-display: "Rubik Mono One", "Arial Black", sans-serif;
 }
 
-/* ---- page: night sky, red haze top right, teal haze bottom left ---- */
-.v-application.theme--dark {
-  background:
-    radial-gradient(ellipse 70% 40% at 85% -10%, rgba(229,50,43,.16), transparent 70%),
-    radial-gradient(ellipse 60% 50% at 0% 110%, rgba(86,211,204,.08), transparent 70%),
-    var(--tr-void) !important;
-  background-attachment: fixed !important;
-  color: var(--tr-paper);
-}
-.v-application,
-.v-application .text-h1, .v-application .text-h2, .v-application .text-h3,
-.v-application .text-h4, .v-application .text-h5, .v-application .text-h6,
-.v-application .text-subtitle-1, .v-application .text-subtitle-2,
-.v-application .text-body-1, .v-application .text-body-2,
-.v-application .text-caption, .v-application .text-button,
-.v-application .text-overline { font-family: var(--tr-mono) !important; }
+@container style(--v-primary-base: #e5322b) {
 
-/* CRT scanlines over everything, never blocks clicks */
-.v-application::after {
-  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
-  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,.18) 2px 3px);
-}
+  /* ---- page: night sky, red haze top right, teal haze bottom left ---- */
+  .v-application.theme--dark {
+    background:
+      radial-gradient(ellipse 70% 40% at 85% -10%, rgba(229,50,43,.16), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 0% 110%, rgba(86,211,204,.08), transparent 70%),
+      var(--tr-void) !important;
+    background-attachment: fixed !important;
+    color: var(--tr-paper);
+  }
+  .v-application,
+  .v-application .text-h1, .v-application .text-h2, .v-application .text-h3,
+  .v-application .text-h4, .v-application .text-h5, .v-application .text-h6,
+  .v-application .text-subtitle-1, .v-application .text-subtitle-2,
+  .v-application .text-body-1, .v-application .text-body-2,
+  .v-application .text-caption, .v-application .text-button,
+  .v-application .text-overline { font-family: var(--tr-mono) !important; }
 
-/* ---- top bar ---- */
-.theme--dark.v-app-bar.v-toolbar.v-sheet {
-  background: linear-gradient(#11151d, #0c0f15) !important;
-  border-bottom: 1px solid var(--tr-rule) !important;
-  box-shadow: 0 0 30px rgba(229,50,43,.08) !important;
-}
-.v-app-bar .v-toolbar__title {
-  font-family: var(--tr-display) !important;
-  color: var(--tr-red);
-  letter-spacing: .04em;
-  text-shadow: 0 0 18px rgba(229,50,43,.45);
-}
+  /* CRT scanlines over everything, never blocks clicks */
+  .v-application::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+    background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,.18) 2px 3px);
+  }
 
-/* ---- side rail and drawers ---- */
-.theme--dark.v-navigation-drawer {
-  background-color: #0a0c11 !important;
-}
-.theme--dark.v-navigation-drawer .v-navigation-drawer__border { background-color: var(--tr-rule) !important; }
-.v-navigation-drawer .v-list-item--active { color: var(--tr-amber) !important; }
-.v-navigation-drawer .v-list-item--active::before { opacity: .08 !important; background: var(--tr-amber); }
-.v-navigation-drawer .v-list-item--active .v-icon { color: var(--tr-amber) !important; text-shadow: 0 0 10px rgba(255,179,71,.6); }
+  /* ---- top bar ---- */
+  .theme--dark.v-app-bar.v-toolbar.v-sheet {
+    background: linear-gradient(#11151d, #0c0f15) !important;
+    border-bottom: 1px solid var(--tr-rule) !important;
+    box-shadow: 0 0 30px rgba(229,50,43,.08) !important;
+  }
+  .v-app-bar .v-toolbar__title {
+    font-family: var(--tr-display) !important;
+    color: var(--tr-red);
+    letter-spacing: .04em;
+    text-shadow: 0 0 18px rgba(229,50,43,.45);
+  }
 
-/* ---- cards: terminal panes with brass titles ---- */
-.theme--dark.v-card.collapsable-card,
-.theme--dark.v-sheet--outlined {
-  background-color: var(--tr-pane) !important;
-  border: 1px solid var(--tr-rule) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 0 0 1px rgba(185,140,66,.06), 0 12px 40px rgba(0,0,0,.45) !important;
-}
-.collapsable-card .collapsable-card-title,
-.collapsable-card .v-toolbar {
-  background: transparent !important;
-  border-bottom: 1px dashed var(--tr-rule);
-}
-.collapsable-card-title .text-no-wrap.col > .font-weight-light {
-  color: var(--tr-brass);
-  font-size: .8rem;
-  font-weight: 500 !important;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-}
-.collapsable-card-title .text-no-wrap.col > .font-weight-light::before {
-  content: "\203A  "; color: #d97757; font-weight: 700; letter-spacing: 0;
-}
-.collapsable-card-title .text-no-wrap.col > .v-icon { color: var(--tr-amber) !important; }
+  /* ---- side rail and drawers ---- */
+  .theme--dark.v-navigation-drawer {
+    background-color: #0a0c11 !important;
+  }
+  .theme--dark.v-navigation-drawer .v-navigation-drawer__border { background-color: var(--tr-rule) !important; }
+  .v-navigation-drawer .v-list-item--active { color: var(--tr-amber) !important; }
+  .v-navigation-drawer .v-list-item--active::before { opacity: .08 !important; background: var(--tr-amber); }
+  .v-navigation-drawer .v-list-item--active .v-icon { color: var(--tr-amber) !important; text-shadow: 0 0 10px rgba(255,179,71,.6); }
 
-/* ---- tables ---- */
-.theme--dark.v-data-table { background: transparent !important; }
-.theme--dark.v-data-table .v-data-table-header th {
-  color: var(--tr-brass) !important;
-  font-size: .7rem !important;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--tr-rule) !important;
+  /* ---- cards: terminal panes with brass titles ---- */
+  .theme--dark.v-card.collapsable-card,
+  .theme--dark.v-sheet--outlined {
+    background-color: var(--tr-pane) !important;
+    border: 1px solid var(--tr-rule) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 0 1px rgba(185,140,66,.06), 0 12px 40px rgba(0,0,0,.45) !important;
+  }
+  .collapsable-card .collapsable-card-title,
+  .collapsable-card .v-toolbar {
+    background: transparent !important;
+    border-bottom: 1px dashed var(--tr-rule);
+  }
+  .collapsable-card-title .text-no-wrap.col > .font-weight-light {
+    color: var(--tr-brass);
+    font-size: .8rem;
+    font-weight: 500 !important;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+  .collapsable-card-title .text-no-wrap.col > .font-weight-light::before {
+    content: "\203A  "; color: #d97757; font-weight: 700; letter-spacing: 0;
+  }
+  .collapsable-card-title .text-no-wrap.col > .v-icon { color: var(--tr-amber) !important; }
+
+  /* ---- tables ---- */
+  .theme--dark.v-data-table { background: transparent !important; }
+  .theme--dark.v-data-table .v-data-table-header th {
+    color: var(--tr-brass) !important;
+    font-size: .7rem !important;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--tr-rule) !important;
+  }
+  .theme--dark.v-data-table tbody tr:not(:last-child) td { border-bottom: 1px dashed var(--tr-rule) !important; }
+  .theme--dark.v-data-table tbody tr:hover:not(.v-data-table__expanded__content) { background: rgba(255,179,71,.04) !important; }
+
+  /* ---- chips, inputs, expansion panels ---- */
+  .theme--dark.v-chip:not(.v-chip--active) { background: transparent !important; border: 1px solid var(--tr-rule) !important; }
+  .theme--dark.v-input input, .theme--dark.v-input textarea { font-family: var(--tr-mono) !important; }
+  .theme--dark.v-expansion-panels .v-expansion-panel { background-color: var(--tr-pane) !important; }
+
+  /* numbers line up like a readout */
+  .v-application td, .v-application .v-input input { font-variant-numeric: tabular-nums; }
+
+  /* ---- footer ---- */
+  .theme--dark.v-footer { background: transparent !important; color: var(--tr-dim) !important; }
+
+  ::selection { background: var(--tr-red); color: var(--tr-void); }
+
 }
-.theme--dark.v-data-table tbody tr:not(:last-child) td { border-bottom: 1px dashed var(--tr-rule) !important; }
-.theme--dark.v-data-table tbody tr:hover:not(.v-data-table__expanded__content) { background: rgba(255,179,71,.04) !important; }
-
-/* ---- chips, inputs, expansion panels ---- */
-.theme--dark.v-chip:not(.v-chip--active) { background: transparent !important; border: 1px solid var(--tr-rule) !important; }
-.theme--dark.v-input input, .theme--dark.v-input textarea { font-family: var(--tr-mono) !important; }
-.theme--dark.v-expansion-panels .v-expansion-panel { background-color: var(--tr-pane) !important; }
-
-/* numbers line up like a readout */
-.v-application td, .v-application .v-input input { font-variant-numeric: tabular-nums; }
-
-/* ---- footer ---- */
-.theme--dark.v-footer { background: transparent !important; color: var(--tr-dim) !important; }
-
-::selection { background: var(--tr-red); color: var(--tr-void); }
