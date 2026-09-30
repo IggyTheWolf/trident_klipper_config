@@ -1,0 +1,268 @@
+{
+  "updated": "2026-09-30",
+  "versions": [
+    {
+      "k": "klipper",
+      "v": "v0.13.0"
+    },
+    {
+      "k": "moonraker",
+      "v": "v0.11.0"
+    },
+    {
+      "k": "fluidd",
+      "v": "v1.37.6"
+    },
+    {
+      "k": "crowsnest",
+      "v": "v4.2.0"
+    },
+    {
+      "k": "obico",
+      "v": "v2.2.3"
+    }
+  ],
+  "spec": [
+    {
+      "k": "frame",
+      "v": "Voron Trident, 300 mm (X 300 / Y 310 / Z 250)"
+    },
+    {
+      "k": "mainboard",
+      "v": "BTT Octopus V1.1, STM32F446, USB-to-CAN bridge"
+    },
+    {
+      "k": "can bus",
+      "v": "can0, 1 Mbit, Octopus RJ11 port (PD0/PD1)"
+    },
+    {
+      "k": "toolhead",
+      "v": "Stealthburner, Clockwork 2 extruder"
+    },
+    {
+      "k": "toolhead pcb",
+      "v": "Hartk 2-piece Stealthburner PCB (CAN board pending)"
+    },
+    {
+      "k": "probe",
+      "v": "Voron Tap on DIAG_7"
+    },
+    {
+      "k": "motion",
+      "v": "CoreXY, 0.9° A/B motors, TMC2209, 9000 mm/s² max"
+    },
+    {
+      "k": "z",
+      "v": "3 × TR8x4 leadscrews, Z_TILT_ADJUST"
+    },
+    {
+      "k": "input shaper",
+      "v": "X mzv 68.2 Hz · Y ei 69.4 Hz"
+    },
+    {
+      "k": "bed",
+      "v": "SSR on HE1, max_power 0.6, adaptive mesh"
+    },
+    {
+      "k": "display",
+      "v": "BTT Mini12864"
+    },
+    {
+      "k": "camera / remote",
+      "v": "crowsnest v4.2.0 · Obico v2.2.3"
+    },
+    {
+      "k": "backup",
+      "v": "GIT_BACKUP → GitHub (deploy key) · restore points + SD image on the Mac"
+    },
+    {
+      "k": "print time",
+      "v": "about 2,477 hours (as of Sept 2026)"
+    }
+  ],
+  "mods": [],
+  "log": [
+    {
+      "ts": "2026-09-30T15:15",
+      "cat": "HARDWARE",
+      "title": "Toolhead build started",
+      "body": "Converting the Stealthburner to a CAN toolhead board. Deciding between the Mellow FLY SB2040 V3 (pins match the Hartk 2-piece PCB) and the BTT SB2209 RP2040 (officially supported by Cartographer via the SB0000 adapter).",
+      "commit": ""
+    },
+    {
+      "ts": "2026-09-30T15:10",
+      "cat": "CONFIG",
+      "title": "Test results saved: PID and mesh",
+      "body": "Home, Z tilt, PID, pressure advance and bed mesh all passed. CAN bus clean through all tests: 0 errors, 0 drops.",
+      "commit": "43009cc"
+    },
+    {
+      "ts": "2026-09-30T15:10",
+      "cat": "BACKUP",
+      "title": "macOS metadata file removed from the repo",
+      "body": "._* and .DS_Store now ignored.",
+      "commit": "f02b0c0"
+    },
+    {
+      "ts": "2026-09-30T13:13",
+      "cat": "CONFIG",
+      "title": "PID_EXTRUDER / PID_BED buttons restored",
+      "body": "Each has a TARGET field in Fluidd and saves the result.",
+      "commit": "7425fd4"
+    },
+    {
+      "ts": "2026-09-30T13:05",
+      "cat": "SOFTWARE",
+      "title": "Switched to the official fluidd-config",
+      "body": "fluidd.cfg now links to ~/fluidd-config/client.cfg and updates through Moonraker. CANCEL_PRINT now retracts, parks and clears the mesh.",
+      "commit": "950ce8d"
+    },
+    {
+      "ts": "2026-09-30T12:58",
+      "cat": "CONFIG",
+      "title": "IggyTheWolf logo header in printer.cfg",
+      "body": "Regenerated from the original image at the correct character aspect.",
+      "commit": "5c9ed15"
+    },
+    {
+      "ts": "2026-09-30T12:54",
+      "cat": "CONFIG",
+      "title": "printer.cfg restyled",
+      "body": "Boxed section headers, dead commented options and the unused chamber thermistor removed, adxl.cfg include moved to the top. Parsed settings compared before and after: identical apart from the intended changes.",
+      "commit": "ae09f5a"
+    },
+    {
+      "ts": "2026-09-30T12:54",
+      "cat": "CONFIG",
+      "title": "Unused lgx.cfg and lgx-lite.cfg removed",
+      "body": "",
+      "commit": "48815f2"
+    },
+    {
+      "ts": "2026-09-30T12:52",
+      "cat": "CONFIG",
+      "title": "macros.cfg tidied",
+      "body": "Dead code and one-line wrappers removed, CASELIGHT VALUE= replaces LEDON/LEDOFF, PURGE_FILAMENT and PA_CAL cleaned up, [bed_mesh] moved to printer.cfg.",
+      "commit": "6c5428b"
+    },
+    {
+      "ts": "2026-09-30T12:51",
+      "cat": "CONFIG",
+      "title": "KAMP replaced by Klipper's built-in adaptive mesh",
+      "body": "BED_MESH_CALIBRATE ADAPTIVE=1 with adaptive_margin 0. KAMP files, includes and the repo on the Pi removed.",
+      "commit": "8bd773c"
+    },
+    {
+      "ts": "2026-09-30T12:50",
+      "cat": "CONFIG",
+      "title": "PRINT_START: Tap probe temp named PROBE_TEMP",
+      "body": "",
+      "commit": "ac659bc"
+    },
+    {
+      "ts": "2026-09-30T12:50",
+      "cat": "CONFIG",
+      "title": "nozzle_scrub.cfg cut from 229 to 27 lines",
+      "body": "Same wipe: X186 ↔ X226 at Y310, 8 passes.",
+      "commit": "7eef3a5"
+    },
+    {
+      "ts": "2026-09-30T12:49",
+      "cat": "CONFIG",
+      "title": "PID macros fixed",
+      "body": "SAVE_CONFIG shared a line with TURN_OFF_HEATERS and never ran, and the TARGET_TEMP parameter was ignored.",
+      "commit": "cfd4a2b"
+    },
+    {
+      "ts": "2026-09-30T12:49",
+      "cat": "CONFIG",
+      "title": "PA_CAL: deprecated ACCEL_TO_DECEL replaced",
+      "body": "Now MINIMUM_CRUISE_RATIO=0.5.",
+      "commit": "c4132e3"
+    },
+    {
+      "ts": "2026-09-30T11:56",
+      "cat": "CONFIG",
+      "title": "[mcu] moved from serial to canbus_uuid 844419e24ade",
+      "body": "Old serial and restart_method lines kept as comments for rollback.",
+      "commit": "e203bc2"
+    },
+    {
+      "ts": "2026-09-30T11:55",
+      "cat": "SOFTWARE",
+      "title": "can0 network interface on the Pi",
+      "body": "/etc/network/interfaces.d/can0: 1 Mbit, txqueuelen 128, comes up on boot. Octopus shows as a gs_usb CAN adapter, state ERROR-ACTIVE.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-09-30T11:52",
+      "cat": "FIRMWARE",
+      "title": "Octopus flashed as USB-to-CAN bridge",
+      "body": "STM32F446, 12 MHz, 32 KiB bootloader, USB on PA11/PA12, CAN on PD0/PD1 at 1 Mbit. The first build had CAN on PB8/PB9 and was caught before flashing. Needed a full power cycle to take the new firmware.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-09-29T15:16",
+      "cat": "BACKUP",
+      "title": "Post-update restore point",
+      "body": "Taken after a 14 minute test print. Includes both Octopus firmware builds.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-09-29T14:51",
+      "cat": "CONFIG",
+      "title": "moonraker.conf: update channel set to stable",
+      "body": "",
+      "commit": "adea5f0"
+    },
+    {
+      "ts": "2026-09-29T14:40",
+      "cat": "FIRMWARE",
+      "title": "Octopus reflashed v0.10.0 → v0.13.0 (USB)",
+      "body": "Board had been running 2022 firmware. Flashed firmware.bin from a microSD card; that card now stays in the Octopus so later flashes can be done remotely.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-09-29T14:21",
+      "cat": "SOFTWARE",
+      "title": "Klipper stack updated",
+      "body": "Klipper v0.12.0-249 → v0.13.0\nMoonraker v0.8.0 → v0.11.0 (database migrated, stats intact)\nFluidd 1.30.0 → 1.37.6\nObico 2.0.1 → 2.2.3\ncrowsnest 4.1.9 → 4.2.0\nConfig checked against every v0.13 breaking change: no edits needed.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-09-29T14:10",
+      "cat": "SOFTWARE",
+      "title": "System packages upgraded",
+      "body": "201 apt packages upgraded on Raspbian 11 bullseye. No kernel change, no reboot needed. Moonraker update channel switched from dev to stable.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-09-29T13:29",
+      "cat": "BACKUP",
+      "title": "Full SD card image",
+      "body": "32 GB card imaged to voron-sd-2026-09-29.img.gz (3.3 GB). gzip test passed and the uncompressed size matches the card byte for byte. Restore steps in RESTORE.md.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-09-29T12:40",
+      "cat": "FIRMWARE",
+      "title": "Rollback firmware built for the Octopus",
+      "body": "USB-mode firmware for Klipper v0.12.0-249 saved in ~/Voron-Backups/firmware. Found the Pi's saved build settings were for an SB2209 RP2040 on CAN; kept as sb2209-rp2040-can.config.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-09-29T12:25",
+      "cat": "BACKUP",
+      "title": "GitHub config backup rebuilt",
+      "body": "The old repo on the Pi was gone and .autocommit.sh still pointed at ~/klipper_config. New SSH deploy key limited to this repo, rewritten backup script that refuses database files and the Obico token, new .gitignore. Existing GitHub history kept.",
+      "commit": "83e94a3"
+    },
+    {
+      "ts": "2026-09-29T12:15",
+      "cat": "BACKUP",
+      "title": "First restore point pulled to the Mac",
+      "body": "Config folder (symlinks resolved), Moonraker database snapshot, Octopus firmware settings and KIAUH settings, saved to the Mac outside Dropbox. Database snapshot checked and intact.",
+      "commit": ""
+    }
+  ]
+}
