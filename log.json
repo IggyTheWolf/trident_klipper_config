@@ -86,7 +86,7 @@
       "ts": "2026-09-30T16:20",
       "cat": "SOFTWARE",
       "title": "Fluidd theme: TRIDENT",
-      "body": "Custom theme in .fluidd-theme/ matching this site: CRT scanlines, JetBrains Mono, Akira-red title, brass card headers, wolf logo. Remove the folder to go back to stock.",
+      "body": "Custom theme in .fluidd-theme/ matching this site: CRT scanlines, JetBrains Mono, Akira-red title, brass card headers, wolf logo. Switches on only with the Fluidd preset and primary color #E5322B; every other preset stays stock.",
       "commit": "2c6a7f4"
     },
     {
