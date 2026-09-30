@@ -13,3 +13,6 @@ crowsnest.conf.20*
 *.bkp
 *.swp
 .git-old
+# macOS metadata files
+._*
+.DS_Store
