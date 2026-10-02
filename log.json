@@ -91,7 +91,7 @@
       "part": "Large gear for Clockwork 2",
       "area": "Toolhead",
       "link": "https://www.printables.com/model/404246-large-gear-clockwork2",
-      "note": "Replacement gear for the CW2 extruder."
+      "note": "Replacement gear for the CW2 extruder. Klipper: rotation_distance 5.56 (calibrated by measuring extruded filament, gear ratio included, no gear_ratio line)."
     }
   ],
   "log": [
