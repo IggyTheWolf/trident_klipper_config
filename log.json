@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30",
+  "updated": "2026-10-02",
   "versions": [
     {
       "k": "klipper",
@@ -82,6 +82,20 @@
   ],
   "mods": [],
   "log": [
+    {
+      "ts": "2026-10-02T10:30",
+      "cat": "SOFTWARE",
+      "title": "Tailscale on the Pi",
+      "body": "Remote SSH and Fluidd from anywhere without port forwarding. Installed from Tailscale's official Raspbian repo; Moonraker now trusts the Tailscale address range.",
+      "commit": "7c4b09b"
+    },
+    {
+      "ts": "2026-10-02T10:08",
+      "cat": "SOFTWARE",
+      "title": "Fluidd theme: TRIDENT",
+      "body": "Custom theme in .fluidd-theme/ (custom.css + wolf logo.svg) per the Fluidd docs, matching this site: CRT scanlines, JetBrains Mono, Akira-red title, brass card headers. Applies on top of any preset; delete the folder to go back to stock. Also available as a browser-only bookmarklet (fluidd-trident.css).",
+      "commit": "c7df62b"
+    },
     {
       "ts": "2026-09-30T15:15",
       "cat": "HARDWARE",
