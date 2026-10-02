@@ -86,6 +86,12 @@
       "area": "Motion",
       "link": "https://github.com/3DPrintingMods/VoronTrident-AluminumG",
       "note": "Replaces the printed gantry parts. 6 mm belt version."
+    },
+    {
+      "part": "Large gear for Clockwork 2",
+      "area": "Toolhead",
+      "link": "https://www.printables.com/model/404246-large-gear-clockwork2",
+      "note": "Replacement gear for the CW2 extruder."
     }
   ],
   "log": [
