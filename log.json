@@ -88,10 +88,10 @@
       "note": "Replaces the printed gantry parts. 6 mm belt version."
     },
     {
-      "part": "Large gear for Clockwork 2",
+      "part": "Clockwork 2 large gear adapter (Bondtech LGX Lite gears)",
       "area": "Toolhead",
       "link": "https://www.printables.com/model/404246-large-gear-clockwork2",
-      "note": "Replacement gear for the CW2 extruder. Klipper: rotation_distance 5.56 (calibrated by measuring extruded filament, gear ratio included, no gear_ratio line)."
+      "note": "Runs the CW2 on Bondtech LGX Lite large gears, 44:10 + 37:17 (bondtech.se). Nominal rotation_distance 5.7; calibrated 5.56 by measuring extruded filament. Motor run_current 0.6 A (Bondtech range 0.45-0.60 A)."
     }
   ],
   "log": [
