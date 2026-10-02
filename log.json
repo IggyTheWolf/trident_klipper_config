@@ -85,7 +85,7 @@
       "part": "Aluminum gantry (3DPrintingMods VoronTrident-AluminumG)",
       "area": "Motion",
       "link": "https://github.com/3DPrintingMods/VoronTrident-AluminumG",
-      "note": "Replaces the printed gantry parts. Available for 6 mm or 9 mm belts, CNC or laser-cut."
+      "note": "Replaces the printed gantry parts. 6 mm belt version."
     }
   ],
   "log": [
