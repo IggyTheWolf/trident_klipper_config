@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02",
+  "updated": "2026-10-14",
   "versions": [
     {
       "k": "klipper",
@@ -82,10 +82,10 @@
   ],
   "mods": [
     {
-      "part": "Aluminum gantry (3DPrintingMods VoronTrident-AluminumG)",
+      "part": "Aluminum gantry and A/B motor mounts (3DPrintingMods VoronTrident-AluminumG)",
       "area": "Motion",
       "link": "https://github.com/3DPrintingMods/VoronTrident-AluminumG",
-      "note": "Replaces the printed gantry parts. 6 mm belt version."
+      "note": "Replaces the printed XY gantry: A/B motor mounts, tensioners, front idlers, XY joints. 6 mm belt version. The metal motor mounts have no built-in cable channel, so wiring has to be routed tight to the motors, clear of the belts."
     },
     {
       "part": "Clockwork 2 large gear adapter (Bondtech LGX Lite gears)",
