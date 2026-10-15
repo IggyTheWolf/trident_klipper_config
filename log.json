@@ -45,7 +45,7 @@
     },
     {
       "k": "probe",
-      "v": "Voron Tap on DIAG_7"
+      "v": "Chaoticlab CNC Voron Tap V2.0"
     },
     {
       "k": "motion",
@@ -92,6 +92,12 @@
       "area": "Toolhead",
       "link": "https://www.printables.com/model/404246-large-gear-clockwork2",
       "note": "Runs the CW2 on Bondtech LGX Lite large gears, 44:10 + 37:17 (bondtech.se). Nominal rotation_distance 5.7; calibrated 5.56 by measuring extruded filament. Motor run_current 0.6 A (Bondtech range 0.45-0.60 A)."
+    },
+    {
+      "part": "Chaoticlab CNC Voron Tap V2.0",
+      "area": "Toolhead",
+      "link": "https://www.chaoticlab.com/products/cnc-voron-tap",
+      "note": "CNC version of Badnoob's Voron Tap: MGN7H rail, magnetic limit assembly, 65 g. OMRON EE-SX4320 optical sensor rated 5-24 V. Replaces the X carriage (CW2-style mount)."
     }
   ],
   "log": [
