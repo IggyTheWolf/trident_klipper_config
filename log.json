@@ -119,7 +119,7 @@
       "ts": "2026-09-30T15:15",
       "cat": "HARDWARE",
       "title": "Toolhead build started",
-      "body": "Converting the Stealthburner to a CAN toolhead board. Deciding between the Mellow FLY SB2040 V3 (pins match the Hartk 2-piece PCB) and the BTT SB2209 RP2040 (officially supported by Cartographer via the SB0000 adapter).",
+      "body": "Phase 1: converting the Stealthburner to CAN with the Mellow FLY SB2040 V2; hotend, extruder and Tap unchanged. Old harness removed, new twisted-pair CAN + 24 V cable run through the drag chains. The SB2209 was ruled out: it doesn't sit flush on the CW2 with the large-gear housing.\nPhase 2 (later): A4T toolhead with an EBB36, Rapido hotend with PT100, filament sensor.",
       "commit": ""
     },
     {
