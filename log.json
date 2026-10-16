@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14",
+  "updated": "2026-10-16",
   "versions": [
     {
       "k": "klipper",
@@ -41,7 +41,7 @@
     },
     {
       "k": "toolhead pcb",
-      "v": "Hartk 2-piece Stealthburner PCB (CAN board pending)"
+      "v": "Mellow FLY-SB2040 V2 on CAN (Katapult + Klipper v0.13.0)"
     },
     {
       "k": "probe",
@@ -101,6 +101,41 @@
     }
   ],
   "log": [
+    {
+      "ts": "2026-10-16T14:05",
+      "cat": "HARDWARE",
+      "title": "Extruder driver fault on first extrusion",
+      "body": "TMC2209 on the Mellow reported short-to-supply and open load on both coils during a 100 mm test at 255 °C. Klipper shut down safely. Next: check the extruder motor plug and coil pairs.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-10-16T13:45",
+      "cat": "CONFIG",
+      "title": "Tap found on gpio28, inverted",
+      "body": "Mellow's docs disagree on endstop numbering; a three-pin test showed the Tap on gpio28. Probe, fans, LEDs, heater (100 °C, ±0.3) and X/Y/Z homing all verified, CAN at 0 errors.",
+      "commit": "dde4440"
+    },
+    {
+      "ts": "2026-10-16T13:30",
+      "cat": "CONFIG",
+      "title": "Toolhead moved to CAN (sb2040.cfg)",
+      "body": "Extruder, hotend, fans, Tap, Stealthburner LEDs and ADXL now on the Mellow; cw2.cfg replaced. Hotend sensor is the ATC Semitec 104NT on TH0 (this board has no PT100 chip). Enclosure thermistor commented out, removed with the old harness.",
+      "commit": "445df80"
+    },
+    {
+      "ts": "2026-10-16T13:10",
+      "cat": "FIRMWARE",
+      "title": "Klipper v0.13.0 on the Mellow over CAN",
+      "body": "Flashed through Katapult (16 KiB offset). Bus termination checked at 59.4 Ω with the Mellow 120R jumper fitted.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-10-16T12:51",
+      "cat": "FIRMWARE",
+      "title": "Katapult bootloader on the Mellow SB2040 V2",
+      "body": "Flashed over USB with the XT30 unplugged (the board would not enter flash mode while on 24 V). Mellow settings: W25Q080, CAN gpio4/gpio5 at 1 Mbit, double-tap reset, status LED gpio24. Future firmware updates go over CAN.",
+      "commit": ""
+    },
     {
       "ts": "2026-10-02T10:30",
       "cat": "SOFTWARE",
