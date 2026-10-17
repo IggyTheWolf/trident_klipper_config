@@ -102,6 +102,20 @@
   ],
   "log": [
     {
+      "ts": "2026-10-16T16:40",
+      "cat": "HARDWARE",
+      "title": "First test print on the CAN toolhead",
+      "body": "Voron Design Cube, ABS, 41 min, completed. Klipper stayed ready throughout; CAN 0 errors, 0 drops; no driver or timing warnings. Mellow MCU peaked at 56 °C. Next: 9x9 mm heatsink on the extruder driver.",
+      "commit": ""
+    },
+    {
+      "ts": "2026-10-16T15:55",
+      "cat": "HARDWARE",
+      "title": "Extruder fault fixed: coil pairs re-pinned",
+      "body": "Root cause of the TMC short-to-supply / open-load faults: the extruder plug had its coil pairs on pins 1-3 and 2-4. Swapping the middle two wires put each coil on adjacent pins as the Mellow header expects. Motor coils measured about 2 Ω per pair. Also found and re-crimped the Tap signal wire, which had broken at the terminal and caused a Z homing crash; Z tilt corrected 3.03 mm back to 0.004 mm.",
+      "commit": "ec13d36"
+    },
+    {
       "ts": "2026-10-16T14:05",
       "cat": "HARDWARE",
       "title": "Extruder driver fault on first extrusion",
