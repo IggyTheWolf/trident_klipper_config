@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-16",
+  "updated": "2026-10-18",
   "versions": [
     {
       "k": "klipper",
@@ -101,6 +101,13 @@
     }
   ],
   "log": [
+    {
+      "ts": "2026-10-18T20:25",
+      "cat": "SOFTWARE",
+      "title": "Fixed probing timeouts over CAN",
+      "body": "Two prints cancelled during PRINT_START with \"Communication timeout during homing\" (Tap on the Mellow, Z motors on the Octopus). CAN bus was clean; the Pi 3 had one core pinned by Obico's live-video transcode. Turned off Obico live video (snapshots and failure detection still on), removed the dead nozzle camera from crowsnest, raised can0 txqueuelen to 1024.",
+      "commit": ""
+    },
     {
       "ts": "2026-10-16T16:40",
       "cat": "HARDWARE",
