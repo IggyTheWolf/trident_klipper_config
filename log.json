@@ -102,6 +102,13 @@
   ],
   "log": [
     {
+      "ts": "2026-10-18T21:05",
+      "cat": "SOFTWARE",
+      "title": "Fluidd theme: cyberpunk layer",
+      "body": "Added on top of the TRIDENT theme: neon cyan/magenta card frames with HUD corner brackets, a faint neon grid, cyan card titles, magenta table headers, and a chromatic, briefly glitching TRIDENT title. Mocked up in a browser tab first, then applied. Also in the bookmarklet stylesheet.",
+      "commit": ""
+    },
+    {
       "ts": "2026-10-18T20:25",
       "cat": "SOFTWARE",
       "title": "Fixed probing timeouts over CAN",
