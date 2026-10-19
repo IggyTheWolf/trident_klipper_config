@@ -165,6 +165,41 @@ footer b{color:var(--brass);font-weight:500}
   .cmd .note{margin-left:0}
 }
 @media (prefers-reduced-motion:reduce){.cursor{animation:none}}
+
+/* ---- CYBERPUNK LAYER (matches the Fluidd theme) ---- */
+:root{ --cp-cyan:#00f0ff; --cp-magenta:#ff2bd6; }
+body{
+  background-color:#05060a;
+  background-image:
+    linear-gradient(rgba(255,43,214,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,240,255,.05) 1px, transparent 1px),
+    radial-gradient(ellipse 70% 45% at 85% -10%, rgba(229,50,43,.20), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 0% 110%, rgba(0,240,255,.12), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 100% 100%, rgba(255,43,214,.10), transparent 70%);
+  background-size:48px 48px,48px 48px,auto,auto,auto;
+}
+.term{border-color:rgba(0,240,255,.35);box-shadow:0 0 0 1px rgba(255,43,214,.10),0 0 40px rgba(0,240,255,.10),0 30px 80px rgba(0,0,0,.6)}
+.bar{border-bottom-color:rgba(0,240,255,.30);box-shadow:0 1px 0 rgba(255,43,214,.30)}
+h1{color:#fff;text-shadow:-3px 0 var(--cp-cyan),3px 0 var(--cp-magenta),0 0 30px rgba(255,43,214,.45);animation:tr-glitch 6s infinite steps(1)}
+@keyframes tr-glitch{0%,92%,100%{transform:none}93%{transform:translate(3px,-2px);text-shadow:-5px 0 var(--cp-cyan),5px 0 var(--cp-magenta)}95%{transform:translate(-3px,1px)}97%{transform:skewX(-8deg)}}
+@media (prefers-reduced-motion:reduce){h1{animation:none}}
+.cmd .c{color:var(--cp-cyan);text-shadow:0 0 8px rgba(0,240,255,.5)}
+.box{border-color:rgba(0,240,255,.28);box-shadow:0 0 14px rgba(0,240,255,.08),inset 0 0 24px rgba(255,43,214,.04)}
+.box[data-label]::before{color:var(--cp-magenta);text-shadow:0 0 6px rgba(255,43,214,.5)}
+.box::after{content:"";position:absolute;inset:-2px;pointer-events:none;
+  background:
+    linear-gradient(var(--cp-magenta),var(--cp-magenta)) top left/14px 2px no-repeat,
+    linear-gradient(var(--cp-magenta),var(--cp-magenta)) top left/2px 14px no-repeat,
+    linear-gradient(var(--cp-cyan),var(--cp-cyan)) bottom right/14px 2px no-repeat,
+    linear-gradient(var(--cp-cyan),var(--cp-cyan)) bottom right/2px 14px no-repeat;
+  filter:drop-shadow(0 0 3px rgba(255,43,214,.6))}
+.spec dt,.mods h4,.day h3{color:var(--cp-magenta);text-shadow:0 0 6px rgba(255,43,214,.35)}
+.day h3::after{background:linear-gradient(90deg,rgba(255,43,214,.4),rgba(0,240,255,.15))}
+.spec div{border-bottom-color:rgba(0,240,255,.15)}
+.entry:hover{background:rgba(0,240,255,.04)}
+.search{border-bottom-color:rgba(0,240,255,.35)}
+.filter[aria-pressed=true]{box-shadow:0 0 12px rgba(255,179,71,.45)}
+footer{border-top-color:rgba(0,240,255,.25)}
 </style>
 </head>
 <body>
