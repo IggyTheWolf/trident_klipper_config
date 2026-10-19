@@ -1,6 +1,7 @@
 /* ===================================================================
    TRIDENT // Fluidd theme  (トライデント)
-   80s electro-steampunk: Neo-Tokyo night, CRT amber, Akira red, brass.
+   80s electro-steampunk + cyberpunk neon: Akira red, CRT amber, brass,
+   cyan/magenta HUD glow.
    Matches https://iggythewolf.github.io/trident_klipper_config/
    Loaded in the browser only (bookmarklet). Nothing is installed on the printer.
    =================================================================== */
@@ -114,3 +115,71 @@
 .theme--dark.v-footer { background: transparent !important; color: var(--tr-dim) !important; }
 
 ::selection { background: var(--tr-red); color: var(--tr-void); }
+
+/* ---- CYBERPUNK LAYER: neon cyan/magenta, HUD brackets, grid, glitch title ---- */
+:root {
+  --cp-cyan: #00f0ff;
+  --cp-magenta: #ff2bd6;
+  --cp-red: #e5322b;
+}
+/* neon grid + extra haze */
+.v-application.theme--dark {
+  background:
+    linear-gradient(rgba(255,43,214,.06) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgba(0,240,255,.05) 1px, transparent 1px) 0 0 / 48px 48px,
+    radial-gradient(ellipse 70% 45% at 85% -10%, rgba(229,50,43,.20), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 0% 110%, rgba(0,240,255,.12), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 100% 100%, rgba(255,43,214,.10), transparent 70%),
+    #05060a !important;
+  background-attachment: fixed !important;
+}
+/* chromatic title + glitch */
+.v-app-bar .v-toolbar__title {
+  color: #fff !important;
+  text-shadow: -2px 0 var(--cp-cyan), 2px 0 var(--cp-magenta), 0 0 18px rgba(255,43,214,.55) !important;
+  animation: tr-glitch 6s infinite steps(1);
+}
+@keyframes tr-glitch {
+  0%, 92%, 100% { transform: none; }
+  93% { transform: translate(2px,-1px); text-shadow: -3px 0 var(--cp-cyan), 3px 0 var(--cp-magenta); }
+  95% { transform: translate(-2px,1px); }
+  97% { transform: skewX(-8deg); }
+}
+@media (prefers-reduced-motion: reduce) { .v-app-bar .v-toolbar__title { animation: none; } }
+.theme--dark.v-app-bar.v-toolbar.v-sheet {
+  border-bottom: 1px solid rgba(0,240,255,.35) !important;
+  box-shadow: 0 1px 0 rgba(255,43,214,.35), 0 0 24px rgba(0,240,255,.12) !important;
+}
+/* neon card frames with HUD corner brackets */
+.theme--dark.v-card.collapsable-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(12,15,21,.92), rgba(7,8,12,.92)) !important;
+  border: 1px solid rgba(0,240,255,.28) !important;
+  box-shadow: 0 0 14px rgba(0,240,255,.10), inset 0 0 24px rgba(255,43,214,.04) !important;
+  overflow: visible !important;
+}
+.theme--dark.v-card.collapsable-card::before,
+.theme--dark.v-card.collapsable-card::after {
+  content: ""; position: absolute; width: 14px; height: 14px; pointer-events: none; z-index: 2;
+}
+.theme--dark.v-card.collapsable-card::before {
+  top: -2px; left: -2px; border-top: 2px solid var(--cp-magenta); border-left: 2px solid var(--cp-magenta);
+  filter: drop-shadow(0 0 4px var(--cp-magenta));
+}
+.theme--dark.v-card.collapsable-card::after {
+  bottom: -2px; right: -2px; border-bottom: 2px solid var(--cp-cyan); border-right: 2px solid var(--cp-cyan);
+  filter: drop-shadow(0 0 4px var(--cp-cyan));
+}
+.collapsable-card .collapsable-card-title { border-bottom: 1px solid rgba(255,43,214,.25) !important; }
+.collapsable-card-title .text-no-wrap.col > .font-weight-light {
+  color: var(--cp-cyan) !important;
+  text-shadow: 0 0 8px rgba(0,240,255,.55);
+}
+.collapsable-card-title .text-no-wrap.col > .font-weight-light::before { color: var(--cp-magenta) !important; }
+.collapsable-card-title .text-no-wrap.col > .v-icon { color: var(--cp-magenta) !important; filter: drop-shadow(0 0 4px rgba(255,43,214,.7)); }
+/* tables */
+.theme--dark.v-data-table .v-data-table-header th { color: var(--cp-magenta) !important; text-shadow: 0 0 6px rgba(255,43,214,.45); }
+.theme--dark.v-data-table tbody tr:hover:not(.v-data-table__expanded__content) { background: rgba(0,240,255,.05) !important; }
+/* side rail */
+.v-navigation-drawer .v-list-item--active .v-icon { color: var(--cp-cyan) !important; text-shadow: 0 0 10px var(--cp-cyan); }
+.v-navigation-drawer .v-list-item--active::before { background: var(--cp-cyan) !important; opacity: .1 !important; }
